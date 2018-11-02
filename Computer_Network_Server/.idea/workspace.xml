@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2255f2b3-a554-4e6e-bd08-9159ce77c773" name="Default Changelist" comment="" />
+    <list default="true" id="4a00fa8f-3284-48dd-829c-071f2a897c20" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../ComputerNetworkClassProject/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ComputerNetworkClassProject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ComputerNetworkClassProject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ComputerNetworkClassProject/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ComputerNetworkClassProject/ComputerNetworkClassProject.iml" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="-314023720">
+    <session id="1524945151">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="1" />
@@ -20,30 +26,24 @@
       </usages-collector>
     </session>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="140" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
     <option name="height" value="970" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ComputerNetworkClass_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ComputerNetworkClassProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="RunDashboard">
@@ -63,11 +63,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2255f2b3-a554-4e6e-bd08-9159ce77c773" name="Default Changelist" comment="" />
-      <created>1541131771908</created>
+      <changelist id="4a00fa8f-3284-48dd-829c-071f2a897c20" name="Default Changelist" comment="" />
+      <created>1541134288363</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1541131771908</updated>
+      <updated>1541134288363</updated>
     </task>
     <servers />
   </component>
