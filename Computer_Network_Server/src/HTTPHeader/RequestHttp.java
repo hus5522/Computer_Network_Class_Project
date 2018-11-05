@@ -11,6 +11,11 @@ public class RequestHttp extends AMessageType {
     private StringBuilder requestMessage;
     private Method method;
 
+    public RequestHttp(String httpString)
+    {
+         
+    }
+
     public RequestHttp(Method method, String pathName, String hostName)
     {
 

@@ -8,7 +8,7 @@ public abstract class ABaseHeader {
     public enum Header
     {
         Last_Modified(0), ETag(1) , Accept_Ranges(2), Content_Length(3),
-        Keep_Alive(4), Connection(5), Content_Type(6);
+        Keep_Alive(4), Connection(5), Content_Type(6), Accept(7), Accept_Language(8);
 
         private int headerCode;
         Header(int header)
@@ -28,6 +28,8 @@ public abstract class ABaseHeader {
             headerTable.put(Header.Keep_Alive, "Keep-Alive");
             headerTable.put(Header.Connection, "Connection");
             headerTable.put(Header.Content_Type, "Content-Type");
+            headerTable.put(Header.Accept, "Accept");
+            headerTable.put(Header.Accept_Language, "Accept-Language");
         }
     }
 

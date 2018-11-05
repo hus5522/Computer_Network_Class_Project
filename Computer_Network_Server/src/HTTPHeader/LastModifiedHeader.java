@@ -1,12 +1,19 @@
 package HTTPHeader;
 
+import Helper.FileReader;
+
 public class LastModifiedHeader extends ABaseHeader {
 
+    private String field;
 
+    public LastModifiedHeader(FileReader fileReader)
+    {
+        field = fileReader.GetLastModifiedDate();
+    }
 
     @Override
     public String GetHeaderField() {
-        return null;
+        return GetHeaderTypeInString(Header.Last_Modified) + ": " + field + "\r\n";
     }
 
     @Override

@@ -1,5 +1,6 @@
 package Former;
 
+import HTTPHeader.ABaseHeader;
 import HTTPHeader.AMessageType;
 
 public class HttpFormer {
@@ -18,7 +19,20 @@ public class HttpFormer {
         httpString.append(messageType.GetMessage());
     }
 
+    public void AddHeaderField(ABaseHeader headerLine)
+    {
+        httpString.append(headerLine.GetHeaderField());
+    }
 
+    public void SetEndOfHeader()
+    {
+        httpString.append("\r\n");
+    }
+
+    public void AddBody(AHtmlFormer htmlFormer)
+    {
+
+    }
 }
 
 
