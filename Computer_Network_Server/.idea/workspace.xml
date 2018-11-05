@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a00fa8f-3284-48dd-829c-071f2a897c20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/HTTPHeader/AcceptHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HTTPHeader/AcceptLanguageHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HTTPHeader/ConnectionHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HTTPHeader/ContentLengthHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HTTPHeader/ContentTypeHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HTTPHeader/KeepAliveHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Former/HttpFormer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Former/HttpFormer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/ABaseHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/ABaseHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/LastModifiedHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/LastModifiedHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/RequestHttp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/RequestHttp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helper/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helper/FileReader.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a00fa8f-3284-48dd-829c-071f2a897c20" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +13,7 @@
     <session id="1524945151">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="1" />
@@ -230,7 +217,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="width" value="1122" />
     <option name="height" value="1017" />
@@ -288,7 +275,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541415676723" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541418030876" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -317,8 +304,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="828" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="828" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22995952" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
