@@ -3,31 +3,39 @@ package HTTPHeader;
 import HTTPHeader.AMessageType;
 
 public class RequestHttp extends AMessageType {
-    public enum Method
-    {
+    public enum Method {
         GET, POST
     }
 
     private StringBuilder requestMessage;
     private Method method;
+    private String pathName;
+    private final String hostName = "127.0.0.1";
 
-    public RequestHttp(String httpString)
-    {
-         
+    public RequestHttp(String httpString) {
+        int startIndex;
+        if ((startIndex = httpString.indexOf("GET")) != -1) {
+            method = Method.GET;
+            startIndex += 4;
+        } else if ((startIndex = httpString.indexOf("POST")) != -1) {
+            method = Method.POST;
+            startIndex += 5;
+        }
+
+        int endIndex = httpString.indexOf("HTTP");
+        endIndex--;
+        pathName = httpString.substring(startIndex, endIndex);
     }
 
-    public RequestHttp(Method method, String pathName, String hostName)
-    {
+    public RequestHttp(Method method, String pathName) {
 
         requestMessage = new StringBuilder();
         this.method = method;
+        this.pathName = pathName;
 
-        if(method == Method.GET)
-        {
+        if (method == Method.GET) {
             requestMessage.append("GET ");
-        }
-        else if(method == Method.POST)
-        {
+        } else if (method == Method.POST) {
             requestMessage.append("POST ");
         }
 
@@ -38,9 +46,16 @@ public class RequestHttp extends AMessageType {
         requestMessage.append("\r\n");
     }
 
+    public Method GetMethod() {
+        return method;
+    }
+
+    public String GetPathName() {
+        return pathName;
+    }
+
     @Override
-    public MessageType GetMessageType()
-    {
+    public MessageType GetMessageType() {
         return MessageType.Request;
     }
 
