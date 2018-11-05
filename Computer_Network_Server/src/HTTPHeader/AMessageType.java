@@ -7,5 +7,5 @@ public abstract class AMessageType {
     }
 
     public abstract MessageType GetMessageType();
-    public abstract String GetMessage();
+    public abstract String toString();
 }

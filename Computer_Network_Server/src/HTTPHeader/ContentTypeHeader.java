@@ -32,25 +32,11 @@ public class ContentTypeHeader extends ABaseHeader {
 
     private StringBuilder field;
 
-    public ContentTypeHeader()
+    public ContentTypeHeader(ContentType content, CharType charSet)
     {
         initializeContentTypeAndCharType();
         field = new StringBuilder();
-    }
-
-    public void AddField(ContentType[] content, CharType charSet)
-    {
-        if(field.length() != 0) {
-            field = new StringBuilder();
-        }
-        for(ContentType type:content)
-        {
-            if(field.length() != 0)
-            {
-                field.append(",");
-            }
-            field.append(contentTypeTable.get(type));
-        }
+        field.append(contentTypeTable.get(content));
         field.append(";");
         field.append("charset=");
         field.append(charTypeTable.get(charSet));
@@ -62,7 +48,7 @@ public class ContentTypeHeader extends ABaseHeader {
     }
 
     @Override
-    public String GetHeaderField() {
+    public String toString() {
         return GetHeaderTypeInString(Header.Content_Type) + ": " + field + "\r\n";
     }
 }

@@ -17,13 +17,13 @@ public class HttpFormer {
         httpString = new StringBuilder();
         headerVector = new Vector<ABaseHeader>();
         msgType = messageType.GetMessageType();
-        httpString.append(messageType.GetMessage());
+        httpString.append(messageType.toString());
     }
 
     public void AddHeaderField(ABaseHeader header)
     {
         headerVector.add(header);
-        httpString.append(header.GetHeaderField());
+        httpString.append(header.toString());
     }
 
     public void SetEndOfHeader()
@@ -39,6 +39,11 @@ public class HttpFormer {
         }
 
         httpString.append(htmlFormer.GetHtmlString());
+    }
+
+    @Override
+    public String toString() {
+        return httpString.toString();
     }
 }
 

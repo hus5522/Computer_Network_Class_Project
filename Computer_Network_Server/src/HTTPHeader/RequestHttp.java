@@ -60,7 +60,7 @@ public class RequestHttp extends AMessageType {
     }
 
     @Override
-    public String GetMessage() {
+    public String toString() {
         return requestMessage.toString();
     }
 }

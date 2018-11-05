@@ -40,5 +40,5 @@ public abstract class ABaseHeader {
     }
 
     public abstract Header GetHeaderType();
-    public abstract String GetHeaderField();
+    public abstract String toString();
 }

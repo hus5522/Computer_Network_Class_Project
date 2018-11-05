@@ -44,7 +44,7 @@ public class ConnectionHeader extends ABaseHeader {
     }
 
     @Override
-    public String GetHeaderField() {
+    public String toString() {
         return GetHeaderTypeInString(Header.Connection) + ": " + field + "\r\n";
     }
 }

@@ -73,7 +73,7 @@ public class ResponseHttp extends AMessageType {
     }
 
     @Override
-    public String GetMessage() {
+    public String toString() {
         return responseMessage.toString();
     }
 }
