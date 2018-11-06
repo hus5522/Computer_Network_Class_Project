@@ -16,10 +16,10 @@ public class RequestHttp extends AMessageType {
         int startIndex;
         if ((startIndex = httpString.indexOf("GET")) != -1) {
             method = Method.GET;
-            startIndex += 5;
+            startIndex += 4;
         } else if ((startIndex = httpString.indexOf("POST")) != -1) {
             method = Method.POST;
-            startIndex += 6;
+            startIndex += 5;
         }
         else
         {

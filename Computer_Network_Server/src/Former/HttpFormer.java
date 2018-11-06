@@ -34,21 +34,11 @@ public class HttpFormer {
 
     public void AddBody(AHtmlFormer htmlFormer)
     {
-        if(httpString.lastIndexOf("\r\n\r\n") == -1)
-        {
-            SetEndOfHeader();
-        }
-
         httpString.append(htmlFormer.GetHtmlString());
     }
 
     public void AddBody(String body)
     {
-        if(httpString.lastIndexOf("\r\n\r\n") == -1)
-        {
-            SetEndOfHeader();
-        }
-
         httpString.append(body);
     }
 

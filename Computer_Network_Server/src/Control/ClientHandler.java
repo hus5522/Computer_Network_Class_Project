@@ -21,24 +21,23 @@ public class ClientHandler extends Thread {
     public void run() {
         System.out.println(clientSocket.getInetAddress() + " has connected!");
 
-        StringBuilder requestMessage = new StringBuilder();
+        String requestMessage;
 
         try {
             InputStream inFrom = clientSocket.getInputStream();
             DataOutputStream outToClient = new DataOutputStream(clientSocket.getOutputStream());
             byte[] readData = new byte[5000];
             inFrom.read(readData);
-//            inFromClient.readFully(readData);
-            requestMessage.append(new String(readData));
-            System.out.println(requestMessage.toString());
-            RequestHttp requestHttp = new RequestHttp(requestMessage.toString());
+            requestMessage = new String(readData);
+            System.out.println(requestMessage);
+            RequestHttp requestHttp = new RequestHttp(requestMessage);
             if (requestHttp.GetPathName().equals("favicon.ico")) {
                 outToClient.close();
                 return;
             }
             if (requestHttp.isRequestMessage()) {
                 // confirm user info
-                AuthorizationRequestHeader authorizationRequestHeader = new AuthorizationRequestHeader(requestMessage.toString());
+                AuthorizationRequestHeader authorizationRequestHeader = new AuthorizationRequestHeader(requestMessage);
 
                 String clientID = authorizationRequestHeader.GetUserID();
                 String clientPassword = authorizationRequestHeader.GetUserPassword();
@@ -78,6 +77,13 @@ public class ClientHandler extends Thread {
             LocalFileReader localFileReader = new LocalFileReader(pathName);
             ArrayList<String> fileList = localFileReader.GetAllContentsList();
             int length = 0;
+            if(fileList == null)
+            {
+                if(localFileReader.IsExistedDirectory())
+                localFileReader = new LocalFileReader(manager.GetRootFolderPath());
+                fileList = localFileReader.GetAllContentsList();
+            }
+
             for (String file : fileList) {
                 files.append(file);
                 files.append("\r\n");
