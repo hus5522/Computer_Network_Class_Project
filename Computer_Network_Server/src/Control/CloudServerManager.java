@@ -2,14 +2,14 @@ package Control;
 
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashSet;
 import java.util.Scanner;
 
 
 public class CloudServerManager{
-
+    private HashSet<String> ipAddrSet;
     private static CloudServerManager instance;
     private ServerSocket serverSocket;
     private String rootFolderPath = null;
@@ -19,6 +19,7 @@ public class CloudServerManager{
     /*생성자*/
     private CloudServerManager(){
         try{
+            ipAddrSet = new HashSet<>();
             serverSocket=new ServerSocket(80);
         }catch (IOException e){
             e.printStackTrace();

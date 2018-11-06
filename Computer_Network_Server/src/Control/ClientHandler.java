@@ -17,51 +17,51 @@ public class ClientHandler extends Thread {
 
     @Override
     public void run() {
+        System.out.println(clientSocket.getInetAddress() + " has connected!");
+
         StringBuilder requestMessage = new StringBuilder();
-        StringBuilder responseMessage = new StringBuilder();
-        String sentence;
         try {
-            DataInputStream inFromClient = new DataInputStream(clientSocket.getInputStream());
+            InputStream inFrom = clientSocket.getInputStream();
             DataOutputStream outToClient = new DataOutputStream(clientSocket.getOutputStream());
             byte[] readData = new byte[5000];
-            InputStream inFrom = clientSocket.getInputStream();
             inFrom.read(readData);
 //            inFromClient.readFully(readData);
             requestMessage.append(new String(readData));
-            System.out.println(requestMessage.toString());
-            // confirm user info
-            AuthorizationRequestHeader authorizationRequestHeader = new AuthorizationRequestHeader(requestMessage.toString());
+            RequestHttp requestHttp = new RequestHttp(requestMessage.toString());
+            if (requestHttp.isRequestMessage()) {
+                // confirm user info
+                AuthorizationRequestHeader authorizationRequestHeader = new AuthorizationRequestHeader(requestMessage.toString());
 
-            String clientID = authorizationRequestHeader.GetUserID();
-            String clientPassword = authorizationRequestHeader.GetUserPassword();
-            System.out.println("client id : " + clientID + ", cliend pw: " + clientPassword);
-            if (!manager.GetUserID().equals(clientID) || !manager.GetUserPassword().equals(clientPassword)) {
-                ResponseHttp responseHttp = new ResponseHttp(ResponseHttp.StatusCode.Unauthorized);
-                HttpFormer httpMessage = new HttpFormer(responseHttp);
-                WWWAutheticateResponseHeader wwwAutheticateResponseHeader = new WWWAutheticateResponseHeader(AuthorizationRequestHeader.EncodingType.Basic);
-                httpMessage.AddHeaderField(wwwAutheticateResponseHeader);
-                ContentLengthResponseHeader contentLengthResponseHeader = new ContentLengthResponseHeader(null);
-                httpMessage.AddHeaderField(contentLengthResponseHeader);
-                KeepAliveResponseHeader keepAliveResponseHeader = new KeepAliveResponseHeader(5, 100);
-                httpMessage.AddHeaderField(keepAliveResponseHeader);
-                ConnectionResponseHeader connectionResponseHeader = new ConnectionResponseHeader(ConnectionResponseHeader.ConnectionType.keep_alive);
-                httpMessage.AddHeaderField(connectionResponseHeader);
-                ContentTypeResponseHeader contentTypeResponseHeader = new ContentTypeResponseHeader(ContentTypeResponseHeader.ContentType.text_html, ContentTypeResponseHeader.CharType.utf_8);
-                httpMessage.AddHeaderField(contentTypeResponseHeader);
-                httpMessage.SetEndOfHeader();
-                System.out.println(httpMessage.toString());
-                outToClient.writeBytes(httpMessage.toString());
-                outToClient.close();
-                return;
-            }
-            else
-            {
-                outToClient.close();
-                return;
+                String clientID = authorizationRequestHeader.GetUserID();
+                String clientPassword = authorizationRequestHeader.GetUserPassword();
+
+                System.out.println(clientSocket.getInetAddress() + " try to sign in.");
+                System.out.println("ID : " + clientID + ", PW : " + clientPassword);
+
+                if (!manager.GetUserID().equals(clientID) || !manager.GetUserPassword().equals(clientPassword)) {
+                    ResponseHttp responseHttp = new ResponseHttp(ResponseHttp.StatusCode.Unauthorized);
+                    HttpFormer httpMessage = new HttpFormer(responseHttp);
+                    WWWAutheticateResponseHeader wwwAutheticateResponseHeader = new WWWAutheticateResponseHeader(AuthorizationRequestHeader.EncodingType.Basic);
+                    ContentLengthResponseHeader contentLengthResponseHeader = new ContentLengthResponseHeader(null);
+                    KeepAliveResponseHeader keepAliveResponseHeader = new KeepAliveResponseHeader(5, 100);
+                    ConnectionResponseHeader connectionResponseHeader = new ConnectionResponseHeader(ConnectionResponseHeader.ConnectionType.keep_alive);
+                    ContentTypeResponseHeader contentTypeResponseHeader = new ContentTypeResponseHeader(ContentTypeResponseHeader.ContentType.text_html, ContentTypeResponseHeader.CharType.utf_8);
+                    httpMessage.AddHeaderField(contentTypeResponseHeader);
+                    httpMessage.AddHeaderField(wwwAutheticateResponseHeader);
+                    httpMessage.AddHeaderField(contentLengthResponseHeader);
+                    httpMessage.AddHeaderField(keepAliveResponseHeader);
+                    httpMessage.AddHeaderField(connectionResponseHeader);
+                    httpMessage.SetEndOfHeader();
+                    outToClient.writeBytes(httpMessage.toString());
+                }
             }
 
+            outToClient.close();
+            System.out.println(clientSocket.getInetAddress() + " has closed!");
+            return;
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }
