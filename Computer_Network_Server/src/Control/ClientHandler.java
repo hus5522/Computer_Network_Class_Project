@@ -81,7 +81,7 @@ public class ClientHandler extends Thread {
             for (String file : fileList) {
                 files.append(file);
                 files.append("\r\n");
-                length += file.length() + 1;
+                length += file.length() + 2;
             }
             ResponseHttp responseHttp = new ResponseHttp(ResponseHttp.StatusCode.OK);
             HttpFormer httpMessage = new HttpFormer(responseHttp);
