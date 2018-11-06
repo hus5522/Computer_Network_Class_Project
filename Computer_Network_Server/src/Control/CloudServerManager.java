@@ -63,6 +63,11 @@ public class CloudServerManager{
         }
     }
 
+    public String GetRootFolderPath()
+    {
+        return rootFolderPath;
+    }
+
     public String GetUserID()
     {
         return userID;

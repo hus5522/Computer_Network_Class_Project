@@ -53,8 +53,19 @@ public class ClientHandler extends Thread {
                     httpMessage.AddHeaderField(connectionResponseHeader);
                     httpMessage.SetEndOfHeader();
                     outToClient.writeBytes(httpMessage.toString());
+                    outToClient.close();
+                    System.out.println(clientSocket.getInetAddress() + " has closed!");
+                    return;
                 }
             }
+            else
+            {
+                outToClient.close();
+                System.out.println(clientSocket.getInetAddress() + " has closed!");
+                return;
+            }
+
+            String pathName = manager.GetRootFolderPath() + requestHttp.GetPathName();
 
             outToClient.close();
             System.out.println(clientSocket.getInetAddress() + " has closed!");
