@@ -1,12 +1,12 @@
 package HTTPHeader;
 
-import Helper.FileReader;
+import Helper.LocalFileReader;
 
 public class LastModifiedResponseHeader extends ABaseResponseHeader {
 
     private String field;
 
-    public LastModifiedResponseHeader(FileReader fileReader)
+    public LastModifiedResponseHeader(LocalFileReader fileReader)
     {
         //field = fileReader.GetLastModifiedDate();
     }

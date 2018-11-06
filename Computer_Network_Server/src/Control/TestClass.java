@@ -2,14 +2,15 @@ package Control;
 
 import Former.HttpFormer;
 import HTTPHeader.*;
-import Helper.FileReader;
+import Helper.LocalFileReader;
 
-import java.io.File;
+import java.io.IOException;
 
 public class TestClass {
     public static void main(String[] args)
     {
         CloudServerManager server = CloudServerManager.getInstance();
         server.OperateServer();
+
     }
 }
