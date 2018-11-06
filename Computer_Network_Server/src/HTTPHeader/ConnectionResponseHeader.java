@@ -22,19 +22,12 @@ public class ConnectionResponseHeader extends ABaseResponseHeader {
     }
 
     private StringBuilder field;
-
-    public ConnectionResponseHeader()
+    private ConnectionType connectionType;
+    public ConnectionResponseHeader(ConnectionType type)
     {
         initializeConnectionTypeTable();
         field = new StringBuilder();
-    }
-
-    public void AddField(ConnectionType type, int value)
-    {
-        if(field.length() != 0) {
-            field.append(",");
-        }
-        field.append(connectionTypeTable.get(type) + "=" + value);
+        field.append(connectionTypeTable.get(type));
     }
 
 

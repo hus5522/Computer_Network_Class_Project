@@ -4,11 +4,13 @@ import Former.AHtmlFormer;
 
 public class ContentLengthResponseHeader extends ABaseResponseHeader {
 
-    int contentLength;
+    int contentLength = 0;
 
     public ContentLengthResponseHeader(AHtmlFormer htmlFormer)
     {
-        contentLength = htmlFormer.GetHtmlLength();
+        if(htmlFormer != null) {
+            contentLength = htmlFormer.GetHtmlLength();
+        }
     }
 
     @Override

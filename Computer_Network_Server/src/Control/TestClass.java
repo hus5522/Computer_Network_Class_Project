@@ -4,6 +4,8 @@ import Former.HttpFormer;
 import HTTPHeader.*;
 import Helper.FileReader;
 
+import java.io.File;
+
 public class TestClass {
     public static void main(String[] args)
     {
@@ -25,12 +27,7 @@ public class TestClass {
         RequestHttp req = new RequestHttp("GET /index/index.html HTTP/1.1\r\nHost: 127.0.0.1\r\nUser-Agent:Firefox/3.6.10\r\n\r\nAssdead");
         System.out.println(req.GetPathName());
 
-
-        FileReader fileReader = new FileReader("C:\\Users\\heoyouseong\\Desktop\\까치");
-
-        for(String data : fileReader.GetLastModifiedDate()) {
-            System.out.println(data);
-        }
-
+        CloudServerManager server = CloudServerManager.getInstance();
+        server.OperateServer();
     }
 }

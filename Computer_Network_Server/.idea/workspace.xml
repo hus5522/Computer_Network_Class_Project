@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a00fa8f-3284-48dd-829c-071f2a897c20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/HTTPHeader/ABaseRequestHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HTTPHeader/AuthorizationRequestHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HTTPHeader/WWWAutheticateResponseHeader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/CloudServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/CloudServerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/TestClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Former/HttpFormer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Former/HttpFormer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/ABaseHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/ABaseResponseHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/AcceptHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/AcceptHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/AcceptLanguageHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/AcceptLanguageHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/AcceptRangeHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/AcceptRangeResponseHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/ConnectionHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/ConnectionResponseHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/ContentLengthHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/ContentLengthResponseHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/ContentTypeHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/ContentTypeResponseHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/KeepAliveHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/KeepAliveResponseHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/LastModifiedHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/LastModifiedResponseHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/AuthorizationRequestHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/AuthorizationRequestHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/ConnectionResponseHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/ConnectionResponseHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HTTPHeader/ContentLengthResponseHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HTTPHeader/ContentLengthResponseHeader.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,23 +36,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="72" />
+          <entry key="java" value="83" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="72" />
+          <entry key="JAVA" value="83" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="63" />
-          <entry key="java" value="20534" />
+          <entry key="java" value="23667" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="20534" />
+          <entry key="JAVA" value="23667" />
           <entry key="PLAIN_TEXT" value="63" />
         </counts>
       </usages-collector>
@@ -67,11 +60,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Former/HttpFormer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+            <state relative-caret-position="171">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,10 +73,79 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Control/TestClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Control/ClientHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="59" column="22" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ContentTypeResponseHeader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ConnectionResponseHeader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="29" column="52" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ContentLengthResponseHeader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <folding>
+                <element signature="e#372#373#0" expanded="true" />
+                <element signature="e#416#417#0" expanded="true" />
+                <element signature="e#462#463#0" expanded="true" />
+                <element signature="e#561#562#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Control/CloudServerManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="568">
+              <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+              <folding>
+                <element signature="e#1684#1685#0" expanded="true" />
+                <element signature="e#1712#1713#0" expanded="true" />
+                <element signature="e#1755#1756#0" expanded="true" />
+                <element signature="e#1789#1790#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HTTPHeader/AuthorizationRequestHeader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="950">
-              <caret line="65" column="30" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
+            <state relative-caret-position="138">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,77 +156,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HTTPHeader/WWWAutheticateResponseHeader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="70" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
+            <state relative-caret-position="114">
+              <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
               <folding>
                 <element signature="e#141#142#0" expanded="true" />
                 <element signature="e#168#169#0" expanded="true" />
                 <element signature="e#214#215#0" expanded="true" />
                 <element signature="e#241#242#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ConnectionResponseHeader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ContentLengthResponseHeader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ContentTypeResponseHeader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="912">
-              <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HTTPHeader/LastModifiedResponseHeader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HTTPHeader/KeepAliveResponseHeader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ABaseRequestHeader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HTTPHeader/AcceptHeader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-249">
-              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -196,10 +195,8 @@
         <option value="$PROJECT_DIR$/src/Former/ResponseHttp.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/HostHeader.java" />
         <option value="$PROJECT_DIR$/src/Helper/FileReader.java" />
-        <option value="$PROJECT_DIR$/src/Control/CloudServerManager.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/AcceptHeader.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/AcceptLanguageHeader.java" />
-        <option value="$PROJECT_DIR$/src/Control/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/Former/AHtmlFormer.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/AcceptRangeHeader.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/ConnectionHeader.java" />
@@ -210,21 +207,25 @@
         <option value="$PROJECT_DIR$/src/HTTPHeader/AMessageType.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/RequestHttp.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/ResponseHttp.java" />
-        <option value="$PROJECT_DIR$/src/Former/HttpFormer.java" />
-        <option value="$PROJECT_DIR$/src/Control/TestClass.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/AuthorizationHeader.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/ABaseHeader.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/AuthorizationResponseHeader.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/ABaseRequestHeader.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/ABaseResponseHeader.java" />
-        <option value="$PROJECT_DIR$/src/HTTPHeader/AuthorizationRequestHeader.java" />
         <option value="$PROJECT_DIR$/src/HTTPHeader/WWWAutheticateResponseHeader.java" />
+        <option value="$PROJECT_DIR$/src/Control/CloudServerManager.java" />
+        <option value="$PROJECT_DIR$/src/HTTPHeader/AuthorizationRequestHeader.java" />
+        <option value="$PROJECT_DIR$/src/Former/HttpFormer.java" />
+        <option value="$PROJECT_DIR$/src/HTTPHeader/ContentLengthResponseHeader.java" />
+        <option value="$PROJECT_DIR$/src/HTTPHeader/ConnectionResponseHeader.java" />
+        <option value="$PROJECT_DIR$/src/Control/TestClass.java" />
+        <option value="$PROJECT_DIR$/src/Control/ClientHandler.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="42" />
-    <option name="y" value="-21" />
+    <option name="x" value="576" />
+    <option name="y" value="67" />
     <option name="width" value="1122" />
     <option name="height" value="1017" />
   </component>
@@ -281,7 +282,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541488934627" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541494645679" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -330,10 +331,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="828" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="828" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24048583" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24048583" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -342,7 +342,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299712" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32996634" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22910663" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -415,46 +415,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Control/ClientHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Control/CloudServerManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Former/AHtmlFormer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Control/TestClass.java" />
-    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/RequestHttp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/AMessageType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ResponseHttp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="51" column="43" lean-forward="true" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -486,13 +450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ContentTypeResponseHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ABaseRequestHeader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
@@ -507,34 +464,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/AuthorizationRequestHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="65" column="30" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ConnectionResponseHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ContentLengthResponseHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HTTPHeader/KeepAliveResponseHeader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -545,10 +478,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/RequestHttp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ResponseHttp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/AMessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/HTTPHeader/WWWAutheticateResponseHeader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="70" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
+        <state relative-caret-position="114">
+          <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
           <folding>
             <element signature="e#141#142#0" expanded="true" />
             <element signature="e#168#169#0" expanded="true" />
@@ -560,8 +514,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Former/HttpFormer.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Control/TestClass.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
-          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/AuthorizationRequestHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/net/SocketOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ContentTypeResponseHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ContentLengthResponseHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding>
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#561#562#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HTTPHeader/ConnectionResponseHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="29" column="52" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Control/CloudServerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+          <folding>
+            <element signature="e#1684#1685#0" expanded="true" />
+            <element signature="e#1712#1713#0" expanded="true" />
+            <element signature="e#1755#1756#0" expanded="true" />
+            <element signature="e#1789#1790#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Control/ClientHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

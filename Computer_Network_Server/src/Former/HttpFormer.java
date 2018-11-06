@@ -1,5 +1,6 @@
 package Former;
 
+import HTTPHeader.ABaseRequestHeader;
 import HTTPHeader.ABaseResponseHeader;
 import HTTPHeader.AMessageType;
 

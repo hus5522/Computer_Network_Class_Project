@@ -75,6 +75,11 @@ public class AuthorizationRequestHeader extends ABaseRequestHeader {
                 userPassword = decodedUserInfo.substring(endIndex + 1, decodedUserInfo.length());
             }
         }
+        else
+        {
+            userID = "";
+            userPassword = "";
+        }
     }
 
     public String GetUserID()
