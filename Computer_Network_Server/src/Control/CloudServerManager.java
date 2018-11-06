@@ -49,10 +49,10 @@ public class CloudServerManager implements Runnable{
                 Socket socket=serverSocket.accept();
 
                 /*
+                CleintHandler 스레드를 시작시킴
                 ClientHandler.close();
                 */
 
-                socket.close();
             }catch (IOException e){
                 e.printStackTrace();
             }
