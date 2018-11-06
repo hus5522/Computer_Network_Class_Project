@@ -26,11 +26,22 @@ public class TestClass {
         System.out.println(req.GetPathName());
 
 
+        //파일리더 테스트
         FileReader fileReader = new FileReader("C:\\Users\\heoyouseong\\Desktop\\까치");
 
-        for(String data : fileReader.GetLastModifiedDate()) {
+        //수정시간 출력 테스트
+        System.out.println(fileReader.GetLastModifiedDate("test.txt"));
+
+        //바이트 출력 테스트
+        System.out.println(fileReader.GetFileLength("test.txt"));
+
+
+        //폴더 내 리스트 출력 테스트
+        for(String data : fileReader.GetAllContents()) {
             System.out.println(data);
         }
+
+
 
     }
 }
