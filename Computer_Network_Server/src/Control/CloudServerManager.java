@@ -51,7 +51,7 @@ public class CloudServerManager implements Runnable{
 
                 /*
                 CleintHandler 스레드를 시작시킴
-                ClientHandler.close();
+                ClientHandler(socket).start();
                 */
 
             }catch (IOException e){
