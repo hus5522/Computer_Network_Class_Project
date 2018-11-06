@@ -24,24 +24,5 @@ public class TestClass {
         // How to analyze http request
         RequestHttp req = new RequestHttp("GET /index/index.html HTTP/1.1\r\nHost: 127.0.0.1\r\nUser-Agent:Firefox/3.6.10\r\n\r\nAssdead");
         System.out.println(req.GetPathName());
-
-
-        //파일리더 테스트
-        FileReader fileReader = new FileReader("C:\\Users\\heoyouseong\\Desktop\\까치");
-
-        //수정시간 출력 테스트
-        System.out.println(fileReader.GetLastModifiedDate("test.txt"));
-
-        //바이트 출력 테스트
-        System.out.println(fileReader.GetFileLength("test.txt"));
-
-
-        //폴더 내 리스트 출력 테스트
-        for(String data : fileReader.GetAllContents()) {
-            System.out.println(data);
-        }
-
-
-
     }
 }
