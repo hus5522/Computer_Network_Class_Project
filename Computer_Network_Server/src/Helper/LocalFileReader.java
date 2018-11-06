@@ -113,7 +113,7 @@ public class LocalFileReader {
             return contents;
 
         } catch (Exception e) {
-            return "No "+ fileName;
+            return null;
         }
 
     }
