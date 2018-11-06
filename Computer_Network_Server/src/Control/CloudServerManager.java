@@ -1,6 +1,6 @@
 package Control;
 
-<<<<<<< HEAD
+
 import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -8,21 +8,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-=======
-public class CloudServerManager {
-    private static CloudServerManager instance = null;
 
-    public CloudServerManager GetInstance()
-    {
-        if(instance == null) instance = new CloudServerManager();
-        return instance;
-    }
-
-    private CloudServerManager()
-    {
-
-    }
->>>>>>> 315264f73767d31131d1d32d5d63c0eee3f0db6c
 
 public class CloudServerManager implements Runnable{
 
@@ -36,7 +22,7 @@ public class CloudServerManager implements Runnable{
     /*생성자*/
     private CloudServerManager(){
         try{
-            serverSocket=new ServerSocket(7777);
+            serverSocket=new ServerSocket(80);
             threadArr=new Thread[THREADNUM];
         }catch (IOException e){
             e.printStackTrace();
@@ -62,7 +48,11 @@ public class CloudServerManager implements Runnable{
             try{
                 Socket socket=serverSocket.accept();
 
-                
+                /*
+                ClientHandler.close();
+                */
+
+                socket.close();
             }catch (IOException e){
                 e.printStackTrace();
             }
