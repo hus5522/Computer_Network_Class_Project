@@ -2,9 +2,11 @@ package Control;
 
 import Former.HttpFormer;
 import HTTPHeader.*;
+import Helper.LocalFileReader;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ClientHandler extends Thread {
     private CloudServerManager manager;
@@ -20,6 +22,7 @@ public class ClientHandler extends Thread {
         System.out.println(clientSocket.getInetAddress() + " has connected!");
 
         StringBuilder requestMessage = new StringBuilder();
+
         try {
             InputStream inFrom = clientSocket.getInputStream();
             DataOutputStream outToClient = new DataOutputStream(clientSocket.getOutputStream());
@@ -27,7 +30,12 @@ public class ClientHandler extends Thread {
             inFrom.read(readData);
 //            inFromClient.readFully(readData);
             requestMessage.append(new String(readData));
+            System.out.println(requestMessage.toString());
             RequestHttp requestHttp = new RequestHttp(requestMessage.toString());
+            if (requestHttp.GetPathName().equals("favicon.ico")) {
+                outToClient.close();
+                return;
+            }
             if (requestHttp.isRequestMessage()) {
                 // confirm user info
                 AuthorizationRequestHeader authorizationRequestHeader = new AuthorizationRequestHeader(requestMessage.toString());
@@ -57,16 +65,37 @@ public class ClientHandler extends Thread {
                     System.out.println(clientSocket.getInetAddress() + " has closed!");
                     return;
                 }
-            }
-            else
-            {
+            } else {
                 outToClient.close();
                 System.out.println(clientSocket.getInetAddress() + " has closed!");
                 return;
             }
 
             String pathName = manager.GetRootFolderPath() + requestHttp.GetPathName();
+            System.out.println(pathName);
 
+            StringBuilder files = new StringBuilder();
+            LocalFileReader localFileReader = new LocalFileReader(pathName);
+            ArrayList<String> fileList = localFileReader.GetAllContentsList();
+            int length = 0;
+            for (String file : fileList) {
+                files.append(file);
+                files.append("\r\n");
+                length += file.length() + 1;
+            }
+            ResponseHttp responseHttp = new ResponseHttp(ResponseHttp.StatusCode.OK);
+            HttpFormer httpMessage = new HttpFormer(responseHttp);
+            ContentLengthResponseHeader contentLengthResponseHeader = new ContentLengthResponseHeader(length);
+            KeepAliveResponseHeader keepAliveResponseHeader = new KeepAliveResponseHeader(5, 100);
+            ConnectionResponseHeader connectionResponseHeader = new ConnectionResponseHeader(ConnectionResponseHeader.ConnectionType.keep_alive);
+            ContentTypeResponseHeader contentTypeResponseHeader = new ContentTypeResponseHeader(ContentTypeResponseHeader.ContentType.text_html, ContentTypeResponseHeader.CharType.utf_8);
+            httpMessage.AddHeaderField(contentTypeResponseHeader);
+            httpMessage.AddHeaderField(contentLengthResponseHeader);
+            httpMessage.AddHeaderField(keepAliveResponseHeader);
+            httpMessage.AddHeaderField(connectionResponseHeader);
+            httpMessage.SetEndOfHeader();
+            httpMessage.AddBody(files.toString());
+            outToClient.writeBytes(httpMessage.toString());
             outToClient.close();
             System.out.println(clientSocket.getInetAddress() + " has closed!");
             return;

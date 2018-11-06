@@ -42,6 +42,16 @@ public class HttpFormer {
         httpString.append(htmlFormer.GetHtmlString());
     }
 
+    public void AddBody(String body)
+    {
+        if(httpString.lastIndexOf("\r\n\r\n") == -1)
+        {
+            SetEndOfHeader();
+        }
+
+        httpString.append(body);
+    }
+
     @Override
     public String toString() {
         return httpString.toString();

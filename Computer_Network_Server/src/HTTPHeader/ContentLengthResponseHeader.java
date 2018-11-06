@@ -13,6 +13,11 @@ public class ContentLengthResponseHeader extends ABaseResponseHeader {
         }
     }
 
+    public ContentLengthResponseHeader(int length)
+    {
+        contentLength = length;
+    }
+
     @Override
     public Header GetHeaderType() {
         return Header.Content_Length;
