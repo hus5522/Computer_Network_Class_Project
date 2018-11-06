@@ -76,10 +76,12 @@ public class ClientHandler extends Thread {
             StringBuilder files = new StringBuilder();
             LocalFileReader localFileReader = new LocalFileReader(pathName);
             ArrayList<String> fileList = localFileReader.GetAllContentsList();
+
             int length = 0;
             if(fileList == null)
             {
-                if(localFileReader.IsExistedDirectory())
+                localFileReader.GetContentsInFile()
+
                 localFileReader = new LocalFileReader(manager.GetRootFolderPath());
                 fileList = localFileReader.GetAllContentsList();
             }
