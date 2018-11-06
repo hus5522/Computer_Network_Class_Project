@@ -2,13 +2,12 @@ package Control;
 
 import Former.HttpFormer;
 import HTTPHeader.*;
-import Helper.FileReader;
+import Helper.LocalFileReader;
 
-import java.io.File;
+import java.io.IOException;
 
 public class TestClass {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws IOException {
         // How to make http response
         ResponseHttp res = new ResponseHttp(ResponseHttp.StatusCode.OK);
         HttpFormer httpformer = new HttpFormer(res);
@@ -29,5 +28,6 @@ public class TestClass {
 
         CloudServerManager server = CloudServerManager.getInstance();
         server.OperateServer();
+
     }
 }

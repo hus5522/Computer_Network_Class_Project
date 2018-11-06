@@ -1,19 +1,16 @@
 package Helper;
 
-import java.io.File;
-import java.text.NumberFormat;
+import java.io.*;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Locale;
-import java.util.TimeZone;
 
-public class FileReader {
+public class LocalFileReader {
     private String filePath;
     private ArrayList<String> fileName;
 
-    public FileReader(String path) {
+    public LocalFileReader(String path) {
         this.filePath = path;
         this.fileName = new ArrayList<String>();
     }
@@ -30,7 +27,7 @@ public class FileReader {
     }
 
     //폴더 안에 있는 모든 파일 혹은 디렉토리 출력 함수
-    public ArrayList<String> GetAllContents() {
+    public ArrayList<String> GetAllContentsList() {
 
         File directory = new File(filePath);
 
@@ -95,5 +92,29 @@ public class FileReader {
         }
         //해당 파일이 없으면 -1 리턴
         return -1;
+    }
+
+    //특정 파일을 읽어서 문자열로 반환하는 함수
+    public String GetContentsInFile(String fileName) throws IOException {
+        try {
+            File file = new File(filePath+fileName);
+
+            String contents = "";
+            FileReader fileReader = new FileReader(file);
+            BufferedReader br = new BufferedReader(fileReader);
+
+            while(true) {
+                String line = br.readLine();
+                if(line == null) break;
+                contents += line;
+            }
+
+            br.close();
+            return contents;
+
+        } catch (Exception e) {
+            return "No "+ fileName;
+        }
+
     }
 }
