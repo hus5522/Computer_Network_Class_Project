@@ -12,13 +12,14 @@ import java.net.Socket;
 
 public class CloudServerManager implements Runnable{
 
+    private static CloudServerManager instance;
     /*상수*/
     static final int THREADNUM=5;
     /*전역변수*/
     ServerSocket serverSocket;
     Thread[] threadArr;
 
-    private static CloudServerManager instance;
+
     /*생성자*/
     private CloudServerManager(){
         try{
