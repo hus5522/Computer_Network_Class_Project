@@ -2,7 +2,7 @@ package HTTPHeader;
 
 import java.util.HashMap;
 
-public class ConnectionHeader extends ABaseHeader {
+public class ConnectionResponseHeader extends ABaseResponseHeader {
 
     private static HashMap<ConnectionType, String> connectionTypeTable = null;
 
@@ -23,7 +23,7 @@ public class ConnectionHeader extends ABaseHeader {
 
     private StringBuilder field;
 
-    public ConnectionHeader()
+    public ConnectionResponseHeader()
     {
         initializeConnectionTypeTable();
         field = new StringBuilder();

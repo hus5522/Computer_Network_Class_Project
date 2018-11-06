@@ -1,13 +1,12 @@
 package HTTPHeader;
 
 import Former.AHtmlFormer;
-import Helper.FileReader;
 
-public class ContentLengthHeader extends ABaseHeader {
+public class ContentLengthResponseHeader extends ABaseResponseHeader {
 
     int contentLength;
 
-    public ContentLengthHeader(AHtmlFormer htmlFormer)
+    public ContentLengthResponseHeader(AHtmlFormer htmlFormer)
     {
         contentLength = htmlFormer.GetHtmlLength();
     }

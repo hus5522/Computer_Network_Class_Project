@@ -10,13 +10,13 @@ public class TestClass {
         ResponseHttp res = new ResponseHttp(ResponseHttp.StatusCode.OK);
         HttpFormer httpformer = new HttpFormer(res);
 
-        AcceptRangeHeader rangeHeader = new AcceptRangeHeader(AcceptRangeHeader.RangeType.bytes);
+        AcceptRangeResponseHeader rangeHeader = new AcceptRangeResponseHeader(AcceptRangeResponseHeader.RangeType.bytes);
         httpformer.AddHeaderField(rangeHeader);
 
-        KeepAliveHeader keepAliveHeader = new KeepAliveHeader(5, 100);
+        KeepAliveResponseHeader keepAliveHeader = new KeepAliveResponseHeader(5, 100);
         httpformer.AddHeaderField(keepAliveHeader);
 
-        ContentTypeHeader contentTypeHeader = new ContentTypeHeader(ContentTypeHeader.ContentType.text_html, ContentTypeHeader.CharType.utf_8);
+        ContentTypeResponseHeader contentTypeHeader = new ContentTypeResponseHeader(ContentTypeResponseHeader.ContentType.text_html, ContentTypeResponseHeader.CharType.utf_8);
         httpformer.AddHeaderField(contentTypeHeader);
         System.out.println(httpformer.toString());
 

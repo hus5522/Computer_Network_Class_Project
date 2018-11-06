@@ -1,10 +1,8 @@
 package HTTPHeader;
 
-import org.w3c.dom.ranges.Range;
-
 import java.util.HashMap;
 
-public class AcceptRangeHeader extends ABaseHeader{
+public class AcceptRangeResponseHeader extends ABaseResponseHeader {
 
     private static HashMap<RangeType, String> rangeTypeTable = null;
     private void initializeRangeTypeTable()
@@ -23,7 +21,7 @@ public class AcceptRangeHeader extends ABaseHeader{
 
     private String field;
 
-    public AcceptRangeHeader(RangeType type)
+    public AcceptRangeResponseHeader(RangeType type)
     {
         initializeRangeTypeTable();
         field = rangeTypeTable.get(type);
