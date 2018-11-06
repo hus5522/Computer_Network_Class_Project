@@ -1,10 +1,7 @@
 package Control;
 
-import java.io.DataInput;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
+
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -45,8 +42,6 @@ public class CloudServerManager implements Runnable{
         while(true){
             try{
                 Socket socket=serverSocket.accept();
-
-                
             }catch (IOException e){
                 e.printStackTrace();
             }
