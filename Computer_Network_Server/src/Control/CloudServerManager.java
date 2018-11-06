@@ -1,23 +1,31 @@
 package Control;
 
 
+<<<<<<< HEAD
+=======
+import java.io.DataInput;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+>>>>>>> bd4df2afa1eceefc98e427d5d690d9a7bf657326
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+
 public class CloudServerManager implements Runnable{
 
+    private static CloudServerManager instance;
     /*상수*/
     static final int THREADNUM=5;
     /*전역변수*/
     ServerSocket serverSocket;
     Thread[] threadArr;
 
-    private static CloudServerManager instance;
+
     /*생성자*/
     private CloudServerManager(){
         try{
-            serverSocket=new ServerSocket(7777);
+            serverSocket=new ServerSocket(80);
             threadArr=new Thread[THREADNUM];
         }catch (IOException e){
             e.printStackTrace();
@@ -42,6 +50,15 @@ public class CloudServerManager implements Runnable{
         while(true){
             try{
                 Socket socket=serverSocket.accept();
+<<<<<<< HEAD
+=======
+
+                /*
+                CleintHandler 스레드를 시작시킴
+                ClientHandler(socket).start();
+                */
+
+>>>>>>> bd4df2afa1eceefc98e427d5d690d9a7bf657326
             }catch (IOException e){
                 e.printStackTrace();
             }

@@ -4,37 +4,12 @@ import java.util.HashMap;
 
 public class KeepAliveHeader extends ABaseHeader {
 
-    private HashMap<KeepAliveType, String> keepAliveTable = null;
+    private int timeout, max;
 
-    private void initializeKeepAliveTable()
+    public KeepAliveHeader(int timeoutValue, int maxValue)
     {
-        if(keepAliveTable == null)
-        {
-            keepAliveTable = new HashMap<>();
-            keepAliveTable.put(KeepAliveType.timeout, "timeout");
-            keepAliveTable.put(KeepAliveType.max, "max");
-        }
-    }
-
-    public enum KeepAliveType
-    {
-        timeout, max
-    }
-
-    private StringBuilder field;
-
-    public KeepAliveHeader()
-    {
-        initializeKeepAliveTable();
-        field = new StringBuilder();
-    }
-
-    public void AddField(KeepAliveType type, int value)
-    {
-        if(field.length() != 0) {
-            field.append(",");
-        }
-        field.append(keepAliveTable.get(type) + "=" + value);
+        timeout = timeoutValue;
+        max = maxValue;
     }
 
 
@@ -44,7 +19,7 @@ public class KeepAliveHeader extends ABaseHeader {
     }
 
     @Override
-    public String GetHeaderField() {
-        return GetHeaderTypeInString(Header.Keep_Alive) + ": " + field + "\r\n";
+    public String toString() {
+        return GetHeaderTypeInString(Header.Keep_Alive) + ": timeout=" + timeout + ",max=" + max + "\r\n";
     }
 }
