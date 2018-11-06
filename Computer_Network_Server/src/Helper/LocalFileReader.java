@@ -39,7 +39,7 @@ public class LocalFileReader {
         for(File file : directory.listFiles()) {
             //디렉토리라면
             if(file.isDirectory()) {
-                fileName.add(file.getName() + " <- 디렉토리");
+                fileName.add(file.getName());
             } else {
                 fileName.add(file.getName());
             }
@@ -95,9 +95,9 @@ public class LocalFileReader {
     }
 
     //특정 파일을 읽어서 문자열로 반환하는 함수
-    public String GetContentsInFile(String fileName) throws IOException {
+    public String GetContentsInFile() throws IOException {
         try {
-            File file = new File(filePath+fileName);
+            File file = new File(filePath);
 
             String contents = "";
             FileReader fileReader = new FileReader(file);
