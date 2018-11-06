@@ -1,14 +1,15 @@
 package HTTPHeader;
 
+import Former.AHtmlFormer;
 import Helper.FileReader;
 
 public class ContentLengthHeader extends ABaseHeader {
 
     int contentLength;
 
-    public ContentLengthHeader(FileReader file)
+    public ContentLengthHeader(AHtmlFormer htmlFormer)
     {
-        contentLength = file.GetFileLength();
+        contentLength = htmlFormer.GetHtmlLength();
     }
 
     @Override
@@ -17,7 +18,7 @@ public class ContentLengthHeader extends ABaseHeader {
     }
 
     @Override
-    public String GetHeaderField() {
+    public String toString() {
         return GetHeaderTypeInString(Header.Content_Length) + ": " + contentLength + "\r\n";
     }
 }

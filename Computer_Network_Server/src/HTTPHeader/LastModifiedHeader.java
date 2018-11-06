@@ -12,7 +12,7 @@ public class LastModifiedHeader extends ABaseHeader {
     }
 
     @Override
-    public String GetHeaderField() {
+    public String toString() {
         return GetHeaderTypeInString(Header.Last_Modified) + ": " + field + "\r\n";
     }
 

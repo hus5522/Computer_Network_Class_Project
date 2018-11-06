@@ -5,6 +5,7 @@ import HTTPHeader.AMessageType;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class ResponseHttp extends AMessageType {
 
@@ -42,7 +43,7 @@ public class ResponseHttp extends AMessageType {
 
         responseMessage.append("Date: ");
         Date today = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, d, MMM yyyy HH:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss", new Locale("en", "US"));
         String dateString = dateFormat.format(today);
         responseMessage.append(dateString);
         responseMessage.append(" GMT");
@@ -72,7 +73,7 @@ public class ResponseHttp extends AMessageType {
     }
 
     @Override
-    public String GetMessage() {
+    public String toString() {
         return responseMessage.toString();
     }
 }
