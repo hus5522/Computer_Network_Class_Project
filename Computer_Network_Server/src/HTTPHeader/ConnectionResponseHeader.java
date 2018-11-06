@@ -2,7 +2,7 @@ package HTTPHeader;
 
 import java.util.HashMap;
 
-public class ConnectionHeader extends ABaseHeader {
+public class ConnectionResponseHeader extends ABaseResponseHeader {
 
     private static HashMap<ConnectionType, String> connectionTypeTable = null;
 
@@ -22,19 +22,12 @@ public class ConnectionHeader extends ABaseHeader {
     }
 
     private StringBuilder field;
-
-    public ConnectionHeader()
+    private ConnectionType connectionType;
+    public ConnectionResponseHeader(ConnectionType type)
     {
         initializeConnectionTypeTable();
         field = new StringBuilder();
-    }
-
-    public void AddField(ConnectionType type, int value)
-    {
-        if(field.length() != 0) {
-            field.append(",");
-        }
-        field.append(connectionTypeTable.get(type) + "=" + value);
+        field.append(connectionTypeTable.get(type));
     }
 
 

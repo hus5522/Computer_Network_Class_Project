@@ -1,12 +1,10 @@
 package HTTPHeader;
 
-import java.util.HashMap;
-
-public class KeepAliveHeader extends ABaseHeader {
+public class KeepAliveResponseHeader extends ABaseResponseHeader {
 
     private int timeout, max;
 
-    public KeepAliveHeader(int timeoutValue, int maxValue)
+    public KeepAliveResponseHeader(int timeoutValue, int maxValue)
     {
         timeout = timeoutValue;
         max = maxValue;

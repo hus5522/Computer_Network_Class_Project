@@ -2,7 +2,7 @@
 //
 //import java.util.HashMap;
 //// request header
-//public class AcceptHeader extends ABaseHeader {
+//public class AcceptHeader extends ABaseResponseHeader {
 //
 //    private static HashMap<MimeType, String> mimeTypeTable = null;
 //
