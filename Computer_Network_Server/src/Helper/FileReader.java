@@ -4,51 +4,96 @@ import java.io.File;
 import java.text.NumberFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.TimeZone;
 
 public class FileReader {
-
-    private String filepath;
-    private ArrayList<String> date;
+    private String filePath;
+    private ArrayList<String> fileName;
 
     public FileReader(String path) {
-        this.filepath = path;
-        this.date = new ArrayList<String>();
+        this.filePath = path;
+        this.fileName = new ArrayList<String>();
     }
 
-    public int GetComponentNumber() {
-        return date.size();
+    //디렉토리 존재 유무 파악 함수
+    public Boolean IsExistedDirectory() {
+        File directory = new File(filePath);
+
+        if(directory.listFiles() == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
-    public String GetAllContents() {
+    //폴더 안에 있는 모든 파일 혹은 디렉토리 출력 함수
+    public ArrayList<String> GetAllContents() {
+
+        File directory = new File(filePath);
+
+        //디렉토리 존재 유무 확인
+        if(!IsExistedDirectory()) {
+            return null;
+        }
+
+        for(File file : directory.listFiles()) {
+            //디렉토리라면
+            if(file.isDirectory()) {
+                fileName.add(file.getName() + " <- 디렉토리");
+            } else {
+                fileName.add(file.getName());
+            }
+        }
+        return fileName;
+    }
+
+    //특정 파일의 수정시간 출력 함수
+    public String GetLastModifiedDate(String fileName)
+    {
+        File directory = new File(filePath);
+
+        //디렉토리 존재 유무 확인
+        if(!IsExistedDirectory()) {
+            return null;
+        }
+
+        for(File file : directory.listFiles()) {
+
+            //찾고자 하는 파일 이름과 디렉토리 내부의 파일 이름이 같으면 그 파일의 수정일자를 반환
+            if(file.getName().equals(fileName)) {
+                LocalDateTime lastModified = LocalDateTime.ofInstant(Instant.ofEpochMilli(file.lastModified()), ZoneId.systemDefault());
+                String filedate = lastModified.toString().replaceAll("T", " ");
+                filedate = filedate.substring(0, filedate.length() - 4);
+                return filedate;
+            }
+        }
+
         return null;
     }
 
-    public ArrayList<String> GetLastModifiedDate()
+    //특정 파일의 바이트 출력 함수
+    public long GetFileLength(String fileName)
     {
-        File directory = new File(filepath);
-        String filedate;
+        File directory = new File(filePath);
+        long fileSize;
 
-        for(File file : directory.listFiles()) {
-            LocalDateTime lastModified = LocalDateTime.ofInstant(Instant.ofEpochMilli(file.lastModified()),TimeZone.getDefault().toZoneId());
-            filedate = lastModified.toString().replaceAll("T", " ");
-            filedate = filedate.substring(0, filedate.length() - 4);
-            date.add(filedate);
-            /*
-            String dir = file.isDirectory() ? "<DIR>" : "";
-            long fileSize = file.length();
-            String size = fileSize == 0l ? "" : NumberFormat.getNumberInstance(Locale.KOREA).format(fileSize);
-            String name = file.getName();
-            */
+        //디렉토리 존재 유무 확인
+        if(!IsExistedDirectory()) {
+            return 0l;
         }
 
-        return date;
-    }
+        for(File file : directory.listFiles()) {
 
-    public int GetFileLength()
-    {
-        return 0;
+            //찾고자 하는 파일 이름과 디렉토리 내부의 파일 이름이 같으면 그 파일의 사이즈를 반환
+            if(file.getName().equals(fileName)) {
+                fileSize = file.length();
+                return fileSize;
+            }
+        }
+        //해당 파일이 없으면 -1 리턴
+        return -1;
     }
 }
