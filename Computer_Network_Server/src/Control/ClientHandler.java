@@ -78,18 +78,32 @@ public class ClientHandler extends Thread {
             ArrayList<String> fileList = localFileReader.GetAllContentsList();
 
             int length = 0;
+
             if(fileList == null)
             {
-                localFileReader.GetContentsInFile()
-
-                localFileReader = new LocalFileReader(manager.GetRootFolderPath());
-                fileList = localFileReader.GetAllContentsList();
+                String contents = localFileReader.GetContentsInFile();
+                if(contents == null)
+                {
+                    localFileReader = new LocalFileReader(manager.GetRootFolderPath());
+                    fileList = localFileReader.GetAllContentsList();
+                    for (String file : fileList) {
+                        files.append(file);
+                        files.append("\r\n");
+                        length += file.length() + 2;
+                    }
+                }
+                else
+                {
+                    length += contents.length() + 2;
+                    files.append(contents + "\r\n");
+                }
             }
-
-            for (String file : fileList) {
-                files.append(file);
-                files.append("\r\n");
-                length += file.length() + 2;
+            else {
+                for (String file : fileList) {
+                    files.append(file);
+                    files.append("\r\n");
+                    length += file.length() + 2;
+                }
             }
             ResponseHttp responseHttp = new ResponseHttp(ResponseHttp.StatusCode.OK);
             HttpFormer httpMessage = new HttpFormer(responseHttp);
