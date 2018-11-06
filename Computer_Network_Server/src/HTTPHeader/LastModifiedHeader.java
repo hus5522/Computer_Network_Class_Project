@@ -8,7 +8,7 @@ public class LastModifiedHeader extends ABaseHeader {
 
     public LastModifiedHeader(FileReader fileReader)
     {
-        field = fileReader.GetLastModifiedDate();
+        //field = fileReader.GetLastModifiedDate();
     }
 
     @Override
