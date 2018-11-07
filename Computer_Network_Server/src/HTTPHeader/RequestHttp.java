@@ -6,7 +6,7 @@ public class RequestHttp extends AMessageType {
     public enum Method {
         GET, POST
     }
-
+    private boolean isRequest = false;
     private StringBuilder requestMessage;
     private Method method;
     private String pathName;
@@ -21,7 +21,12 @@ public class RequestHttp extends AMessageType {
             method = Method.POST;
             startIndex += 5;
         }
-
+        else
+        {
+            isRequest = false;
+            return;
+        }
+        isRequest = true;
         int endIndex = httpString.indexOf("HTTP");
         endIndex--;
         pathName = httpString.substring(startIndex, endIndex);
@@ -48,6 +53,11 @@ public class RequestHttp extends AMessageType {
 
     public Method GetMethod() {
         return method;
+    }
+
+    public boolean isRequestMessage()
+    {
+        return isRequest;
     }
 
     public String GetPathName() {

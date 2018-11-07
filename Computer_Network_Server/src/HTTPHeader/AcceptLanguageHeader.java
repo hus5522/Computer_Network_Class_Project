@@ -2,7 +2,7 @@
 //
 //import java.util.HashMap;
 //
-//public class AcceptLanguageHeader extends ABaseHeader {
+//public class AcceptLanguageHeader extends ABaseResponseHeader {
 //
 //    private static HashMap<LanguageType, String> langTable = null;
 //

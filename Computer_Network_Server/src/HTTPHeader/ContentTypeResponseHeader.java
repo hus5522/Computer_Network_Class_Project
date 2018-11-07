@@ -2,7 +2,7 @@ package HTTPHeader;
 
 import java.util.HashMap;
 
-public class ContentTypeHeader extends ABaseHeader {
+public class ContentTypeResponseHeader extends ABaseResponseHeader {
 
     private static HashMap<ContentType, String> contentTypeTable = null;
     private static HashMap<CharType, String> charTypeTable = null;
@@ -32,7 +32,7 @@ public class ContentTypeHeader extends ABaseHeader {
 
     private StringBuilder field;
 
-    public ContentTypeHeader(ContentType content, CharType charSet)
+    public ContentTypeResponseHeader(ContentType content, CharType charSet)
     {
         initializeContentTypeAndCharType();
         field = new StringBuilder();

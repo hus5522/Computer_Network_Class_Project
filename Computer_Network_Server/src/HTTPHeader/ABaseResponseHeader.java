@@ -2,19 +2,13 @@ package HTTPHeader;
 
 import java.util.HashMap;
 
-public abstract class ABaseHeader {
+public abstract class ABaseResponseHeader {
     private static HashMap<Header, String> headerTable = null;
 
     public enum Header
     {
-        Last_Modified(0), ETag(1) , Accept_Ranges(2), Content_Length(3),
-        Keep_Alive(4), Connection(5), Content_Type(6), Accept(7), Accept_Language(8);
-
-        private int headerCode;
-        Header(int header)
-        {
-            headerCode = header;
-        }
+        Last_Modified, ETag , Accept_Ranges, Content_Length,
+        Keep_Alive, Connection, Content_Type, WWW_Authenticate
     }
 
     private void initializeHeaderTable()
@@ -28,8 +22,7 @@ public abstract class ABaseHeader {
             headerTable.put(Header.Keep_Alive, "Keep-Alive");
             headerTable.put(Header.Connection, "Connection");
             headerTable.put(Header.Content_Type, "Content-Type");
-            headerTable.put(Header.Accept, "Accept");
-            headerTable.put(Header.Accept_Language, "Accept-Language");
+            headerTable.put(Header.WWW_Authenticate, "WWW-Authenticate");
         }
     }
 
