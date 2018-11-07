@@ -1,32 +1,30 @@
 package Control;
 
 
-<<<<<<< HEAD
-=======
 import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
->>>>>>> bd4df2afa1eceefc98e427d5d690d9a7bf657326
 import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashSet;
+import java.util.Scanner;
 
 
-public class CloudServerManager implements Runnable{
-
+public class CloudServerManager{
+    private HashSet<String> ipAddrSet;
     private static CloudServerManager instance;
-    /*상수*/
-    static final int THREADNUM=5;
-    /*전역변수*/
-    ServerSocket serverSocket;
-    Thread[] threadArr;
-
+    private ServerSocket serverSocket;
+    private String rootFolderPath = null;
+    private String userID;
+    private String userPassword;
 
     /*생성자*/
     private CloudServerManager(){
         try{
+            ipAddrSet = new HashSet<>();
             serverSocket=new ServerSocket(80);
-            threadArr=new Thread[THREADNUM];
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -37,31 +35,48 @@ public class CloudServerManager implements Runnable{
             instance=new CloudServerManager();
         return instance;
     }
-    /*서버 시작*/
-    public void start(){
-        for(int i=0;i<THREADNUM;i++){
-            threadArr[i]=new Thread(this);
-            threadArr[i].start();
 
-        }
-    }
-    @Override
-    public void run() {
+    public void OperateServer() {
+        Scanner s = new Scanner(System.in);
+        System.out.print("User ID : ");
+        userID = s.nextLine();
+        System.out.print("User Password : ");
+        userPassword = s.nextLine();
+
+        File existFile = null;
+
+        do {
+            if(rootFolderPath != null)
+            {
+                System.out.println("Wrong Path!");
+            }
+            System.out.print("Root Folder Path : ");
+            rootFolderPath = s.nextLine();
+            existFile = new File(rootFolderPath);
+        } while(existFile.listFiles() == null || !existFile.isDirectory());
+
         while(true){
             try{
-                Socket socket=serverSocket.accept();
-<<<<<<< HEAD
-=======
 
-                /*
-                CleintHandler 스레드를 시작시킴
-                ClientHandler(socket).start();
-                */
-
->>>>>>> bd4df2afa1eceefc98e427d5d690d9a7bf657326
+                ClientHandler client = new ClientHandler(socket);
+                client.start();
             }catch (IOException e){
                 e.printStackTrace();
             }
         }
+    }
+
+    public String GetRootFolderPath()
+    {
+        return rootFolderPath;
+    }
+
+    public String GetUserID()
+    {
+        return userID;
+    }
+    public String GetUserPassword()
+    {
+        return userPassword;
     }
 }
