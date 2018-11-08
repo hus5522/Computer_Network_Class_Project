@@ -1,11 +1,14 @@
 package Control;
 
+import Former.FileContentHTMLFormer;
+import Former.FileListHTMLFormer;
 import Former.HttpFormer;
 import HTTPHeader.*;
 import Helper.LocalFileReader;
 
 import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class ClientHandler extends Thread {
@@ -26,9 +29,10 @@ public class ClientHandler extends Thread {
         try {
             InputStream inFrom = clientSocket.getInputStream();
             DataOutputStream outToClient = new DataOutputStream(clientSocket.getOutputStream());
-            byte[] readData = new byte[5000];
+            byte[] readData = new byte[10000];
             inFrom.read(readData);
             requestMessage = new String(readData);
+
             System.out.println(requestMessage);
             RequestHttp requestHttp = new RequestHttp(requestMessage);
             if (requestHttp.GetPathName().equals("favicon.ico")) {
@@ -49,7 +53,7 @@ public class ClientHandler extends Thread {
                     ResponseHttp responseHttp = new ResponseHttp(ResponseHttp.StatusCode.Unauthorized);
                     HttpFormer httpMessage = new HttpFormer(responseHttp);
                     WWWAutheticateResponseHeader wwwAutheticateResponseHeader = new WWWAutheticateResponseHeader(AuthorizationRequestHeader.EncodingType.Basic);
-                    ContentLengthResponseHeader contentLengthResponseHeader = new ContentLengthResponseHeader(null);
+                    ContentLengthResponseHeader contentLengthResponseHeader = new ContentLengthResponseHeader(0);
                     KeepAliveResponseHeader keepAliveResponseHeader = new KeepAliveResponseHeader(5, 100);
                     ConnectionResponseHeader connectionResponseHeader = new ConnectionResponseHeader(ConnectionResponseHeader.ConnectionType.keep_alive);
                     ContentTypeResponseHeader contentTypeResponseHeader = new ContentTypeResponseHeader(ContentTypeResponseHeader.ContentType.text_html, ContentTypeResponseHeader.CharType.utf_8);
@@ -59,7 +63,8 @@ public class ClientHandler extends Thread {
                     httpMessage.AddHeaderField(keepAliveResponseHeader);
                     httpMessage.AddHeaderField(connectionResponseHeader);
                     httpMessage.SetEndOfHeader();
-                    outToClient.writeBytes(httpMessage.toString());
+
+                    outToClient.write(httpMessage.toString().getBytes(StandardCharsets.UTF_8));
                     outToClient.close();
                     System.out.println(clientSocket.getInetAddress() + " has closed!");
                     return;
@@ -70,54 +75,51 @@ public class ClientHandler extends Thread {
                 return;
             }
 
-            String pathName = manager.GetRootFolderPath() + requestHttp.GetPathName();
-            System.out.println(pathName);
-
+            String pathName = manager.GetRootFolderPath() + "/" + requestHttp.GetPathName();
+            String htmlString = null;
             StringBuilder files = new StringBuilder();
             LocalFileReader localFileReader = new LocalFileReader(pathName);
             ArrayList<String> fileList = localFileReader.GetAllContentsList();
 
             int length = 0;
-
+            // 디렉토리가 아니면 fileList = null
             if(fileList == null)
             {
-                String contents = localFileReader.GetContentsInFile();
+                byte[] contents = localFileReader.GetContentsInFile();
+                // 파일도 아닐 경우, root 디렉토리 기준 파일리스트를 출력하는 html 생성
                 if(contents == null)
                 {
-                    localFileReader = new LocalFileReader(manager.GetRootFolderPath());
-                    fileList = localFileReader.GetAllContentsList();
-                    for (String file : fileList) {
-                        files.append(file);
-                        files.append("\r\n");
-                        length += file.length() + 2;
-                    }
-                }
+                    FileListHTMLFormer listHtml = new FileListHTMLFormer("");
+                    htmlString = listHtml.GetHtmlString();
+                    length = htmlString.length();
+                } // 파일일 경우, 파일 내용을 출력하는 html 을 생성
                 else
                 {
-                    length += contents.length() + 2;
-                    files.append(contents + "\r\n");
+                    FileContentHTMLFormer contentHtml = new FileContentHTMLFormer(requestHttp.GetPathName());
+                    htmlString = contentHtml.GetHtmlString();
+                    length = htmlString.length();
                 }
-            }
+            } // 디렉토리일 경우, 파일리스트를 출력하는 html 을 생성
             else {
-                for (String file : fileList) {
-                    files.append(file);
-                    files.append("\r\n");
-                    length += file.length() + 2;
-                }
+                FileListHTMLFormer listHtml = new FileListHTMLFormer(requestHttp.GetPathName());
+                htmlString = listHtml.GetHtmlString();
+                length = htmlString.length();
             }
             ResponseHttp responseHttp = new ResponseHttp(ResponseHttp.StatusCode.OK);
             HttpFormer httpMessage = new HttpFormer(responseHttp);
+            AcceptRangeResponseHeader acceptRangeResponseHeader = new AcceptRangeResponseHeader(AcceptRangeResponseHeader.RangeType.bytes);
             ContentLengthResponseHeader contentLengthResponseHeader = new ContentLengthResponseHeader(length);
             KeepAliveResponseHeader keepAliveResponseHeader = new KeepAliveResponseHeader(5, 100);
             ConnectionResponseHeader connectionResponseHeader = new ConnectionResponseHeader(ConnectionResponseHeader.ConnectionType.keep_alive);
             ContentTypeResponseHeader contentTypeResponseHeader = new ContentTypeResponseHeader(ContentTypeResponseHeader.ContentType.text_html, ContentTypeResponseHeader.CharType.utf_8);
-            httpMessage.AddHeaderField(contentTypeResponseHeader);
+            httpMessage.AddHeaderField(acceptRangeResponseHeader);
             httpMessage.AddHeaderField(contentLengthResponseHeader);
             httpMessage.AddHeaderField(keepAliveResponseHeader);
             httpMessage.AddHeaderField(connectionResponseHeader);
+            httpMessage.AddHeaderField(contentTypeResponseHeader);
             httpMessage.SetEndOfHeader();
-            httpMessage.AddBody(files.toString());
-            outToClient.writeBytes(httpMessage.toString());
+            httpMessage.AddBody(htmlString);
+            outToClient.write(httpMessage.toString().getBytes(StandardCharsets.UTF_8));
             outToClient.close();
             System.out.println(clientSocket.getInetAddress() + " has closed!");
             return;

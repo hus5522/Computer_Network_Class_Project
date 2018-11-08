@@ -1,17 +1,8 @@
 package HTTPHeader;
 
-import Former.AHtmlFormer;
-
 public class ContentLengthResponseHeader extends ABaseResponseHeader {
 
     int contentLength = 0;
-
-    public ContentLengthResponseHeader(AHtmlFormer htmlFormer)
-    {
-        if(htmlFormer != null) {
-            contentLength = htmlFormer.GetHtmlLength();
-        }
-    }
 
     public ContentLengthResponseHeader(int length)
     {

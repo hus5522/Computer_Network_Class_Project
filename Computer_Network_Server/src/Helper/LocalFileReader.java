@@ -1,9 +1,6 @@
 package Helper;
 
 import java.io.*;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
 
 public class LocalFileReader {
@@ -47,74 +44,18 @@ public class LocalFileReader {
         return fileName;
     }
 
-    //특정 파일의 수정시간 출력 함수
-    public String GetLastModifiedDate(String fileName)
-    {
-        File directory = new File(filePath);
-
-        //디렉토리 존재 유무 확인
-        if(!IsExistedDirectory()) {
-            return null;
-        }
-
-        for(File file : directory.listFiles()) {
-
-            //찾고자 하는 파일 이름과 디렉토리 내부의 파일 이름이 같으면 그 파일의 수정일자를 반환
-            if(file.getName().equals(fileName)) {
-                LocalDateTime lastModified = LocalDateTime.ofInstant(Instant.ofEpochMilli(file.lastModified()), ZoneId.systemDefault());
-                String filedate = lastModified.toString().replaceAll("T", " ");
-                filedate = filedate.substring(0, filedate.length() - 4);
-                return filedate;
-            }
-        }
-
-        return null;
-    }
-
-    //특정 파일의 바이트 출력 함수
-    public long GetFileLength(String fileName)
-    {
-        File directory = new File(filePath);
-        long fileSize;
-
-        //디렉토리 존재 유무 확인
-        if(!IsExistedDirectory()) {
-            return 0l;
-        }
-
-        for(File file : directory.listFiles()) {
-
-            //찾고자 하는 파일 이름과 디렉토리 내부의 파일 이름이 같으면 그 파일의 사이즈를 반환
-            if(file.getName().equals(fileName)) {
-                fileSize = file.length();
-                return fileSize;
-            }
-        }
-        //해당 파일이 없으면 -1 리턴
-        return -1;
-    }
-
     //특정 파일을 읽어서 문자열로 반환하는 함수
-    public String GetContentsInFile() throws IOException {
+    public byte[] GetContentsInFile() {
         try {
             File file = new File(filePath);
-
-            String contents = "";
-            FileReader fileReader = new FileReader(file);
-            BufferedReader br = new BufferedReader(fileReader);
-
-            while(true) {
-                String line = br.readLine();
-                if(line == null) break;
-                contents += line;
-            }
-
-            br.close();
-            return contents;
+            FileInputStream fileInputStream = new FileInputStream(file);
+            byte[] binaryBytes = new byte[fileInputStream.available()];
+            fileInputStream.read(binaryBytes);
+            return binaryBytes;
 
         } catch (Exception e) {
-            return null;
+            e.printStackTrace();
         }
-
+        return null;
     }
 }

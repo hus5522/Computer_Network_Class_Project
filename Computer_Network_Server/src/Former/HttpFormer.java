@@ -1,14 +1,11 @@
 package Former;
 
-import HTTPHeader.ABaseRequestHeader;
 import HTTPHeader.ABaseResponseHeader;
 import HTTPHeader.AMessageType;
 
 import java.util.Vector;
 
 public class HttpFormer {
-    // http message's end of line
-    public final String END_LINE = "\r\n";
 
     private StringBuilder httpString;
     private AMessageType.MessageType msgType;
@@ -16,25 +13,18 @@ public class HttpFormer {
 
     public HttpFormer(AMessageType messageType) {
         httpString = new StringBuilder();
-        headerVector = new Vector<ABaseResponseHeader>();
         msgType = messageType.GetMessageType();
         httpString.append(messageType.toString());
     }
 
     public void AddHeaderField(ABaseResponseHeader header)
     {
-        headerVector.add(header);
         httpString.append(header.toString());
     }
 
     public void SetEndOfHeader()
     {
         httpString.append("\r\n");
-    }
-
-    public void AddBody(AHtmlFormer htmlFormer)
-    {
-        httpString.append(htmlFormer.GetHtmlString());
     }
 
     public void AddBody(String body)

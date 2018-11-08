@@ -1,17 +1,7 @@
 package Control;
 
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import java.io.DataInput;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
->>>>>>> bd4df2afa1eceefc98e427d5d690d9a7bf657326
 import java.io.IOException;
-=======
 import java.io.*;
->>>>>>> 577cadd7ae17e8db2bccd9f9b8d22b702cc7a7a0
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashSet;
@@ -61,23 +51,15 @@ public class CloudServerManager{
             existFile = new File(rootFolderPath);
         } while(existFile.listFiles() == null || !existFile.isDirectory());
 
+        if(rootFolderPath.endsWith("\\") || rootFolderPath.endsWith("/")) {
+            rootFolderPath = rootFolderPath.substring(0, rootFolderPath.length() - 1);
+        }
+
         while(true){
             try{
                 Socket socket=serverSocket.accept();
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
-                /*
-                CleintHandler 스레드를 시작시킴
-                ClientHandler(socket).start();
-                */
-
->>>>>>> bd4df2afa1eceefc98e427d5d690d9a7bf657326
-=======
                 ClientHandler client = new ClientHandler(socket);
                 client.start();
->>>>>>> 577cadd7ae17e8db2bccd9f9b8d22b702cc7a7a0
             }catch (IOException e){
                 e.printStackTrace();
             }

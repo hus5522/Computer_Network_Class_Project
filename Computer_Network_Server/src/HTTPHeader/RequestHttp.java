@@ -1,6 +1,7 @@
 package HTTPHeader;
 
-import HTTPHeader.AMessageType;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 
 public class RequestHttp extends AMessageType {
     public enum Method {
@@ -16,10 +17,10 @@ public class RequestHttp extends AMessageType {
         int startIndex;
         if ((startIndex = httpString.indexOf("GET")) != -1) {
             method = Method.GET;
-            startIndex += 4;
+            startIndex += 5;
         } else if ((startIndex = httpString.indexOf("POST")) != -1) {
             method = Method.POST;
-            startIndex += 5;
+            startIndex += 6;
         }
         else
         {
@@ -30,25 +31,11 @@ public class RequestHttp extends AMessageType {
         int endIndex = httpString.indexOf("HTTP");
         endIndex--;
         pathName = httpString.substring(startIndex, endIndex);
-    }
-
-    public RequestHttp(Method method, String pathName) {
-
-        requestMessage = new StringBuilder();
-        this.method = method;
-        this.pathName = pathName;
-
-        if (method == Method.GET) {
-            requestMessage.append("GET ");
-        } else if (method == Method.POST) {
-            requestMessage.append("POST ");
+        try {
+            pathName = URLDecoder.decode(pathName, "UTF-8");
+        } catch(UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
-
-        requestMessage.append(pathName);
-        requestMessage.append(" HTTP/1.1\r\n");
-        requestMessage.append("Host: ");
-        requestMessage.append(hostName);
-        requestMessage.append("\r\n");
     }
 
     public Method GetMethod() {
