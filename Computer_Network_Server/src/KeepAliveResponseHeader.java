@@ -1,5 +1,3 @@
-package HTTPHeader;
-
 public class KeepAliveResponseHeader extends ABaseResponseHeader {
 
     private int timeout, max;

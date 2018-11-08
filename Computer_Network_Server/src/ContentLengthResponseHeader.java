@@ -1,5 +1,3 @@
-package HTTPHeader;
-
 public class ContentLengthResponseHeader extends ABaseResponseHeader {
 
     int contentLength = 0;

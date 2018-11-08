@@ -1,5 +1,3 @@
-package HTTPHeader;
-
 public abstract class AMessageType {
     public enum MessageType
     {

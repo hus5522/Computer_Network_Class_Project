@@ -1,5 +1,3 @@
-package HTTPHeader;
-
 public class WWWAutheticateResponseHeader extends ABaseResponseHeader{
 
     private StringBuilder headerField;

@@ -1,5 +1,3 @@
-package HTTPHeader;
-
 import java.util.HashMap;
 
 public class ContentTypeResponseHeader extends ABaseResponseHeader {

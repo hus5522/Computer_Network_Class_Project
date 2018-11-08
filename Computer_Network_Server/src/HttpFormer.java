@@ -1,7 +1,3 @@
-package Former;
-
-import HTTPHeader.ABaseResponseHeader;
-import HTTPHeader.AMessageType;
 
 import java.util.Vector;
 

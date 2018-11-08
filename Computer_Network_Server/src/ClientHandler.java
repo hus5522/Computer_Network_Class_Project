@@ -1,11 +1,3 @@
-package Control;
-
-import Former.FileContentHTMLFormer;
-import Former.FileListHTMLFormer;
-import Former.HttpFormer;
-import HTTPHeader.*;
-import Helper.LocalFileReader;
-
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -33,9 +25,10 @@ public class ClientHandler extends Thread {
             inFrom.read(readData);
             requestMessage = new String(readData);
 
-            System.out.println(requestMessage);
             RequestHttp requestHttp = new RequestHttp(requestMessage);
             if (requestHttp.GetPathName().equals("favicon.ico")) {
+                System.out.println("Ignored favicon.ico");
+                System.out.println(clientSocket.getInetAddress() + " has closed!");
                 outToClient.close();
                 return;
             }
@@ -46,10 +39,11 @@ public class ClientHandler extends Thread {
                 String clientID = authorizationRequestHeader.GetUserID();
                 String clientPassword = authorizationRequestHeader.GetUserPassword();
 
-                System.out.println(clientSocket.getInetAddress() + " try to sign in.");
+                System.out.println(clientSocket.getInetAddress() + " tried to sign in.");
                 System.out.println("ID : " + clientID + ", PW : " + clientPassword);
 
                 if (!manager.GetUserID().equals(clientID) || !manager.GetUserPassword().equals(clientPassword)) {
+                    System.out.println(clientSocket.getInetAddress() + " was Unathorized!");
                     ResponseHttp responseHttp = new ResponseHttp(ResponseHttp.StatusCode.Unauthorized);
                     HttpFormer httpMessage = new HttpFormer(responseHttp);
                     WWWAutheticateResponseHeader wwwAutheticateResponseHeader = new WWWAutheticateResponseHeader(AuthorizationRequestHeader.EncodingType.Basic);
@@ -76,6 +70,7 @@ public class ClientHandler extends Thread {
             }
 
             String pathName = manager.GetRootFolderPath() + "/" + requestHttp.GetPathName();
+            System.out.println(clientSocket.getInetAddress() + " requested " + pathName);
             String htmlString = null;
             StringBuilder files = new StringBuilder();
             LocalFileReader localFileReader = new LocalFileReader(pathName);
